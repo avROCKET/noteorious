@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+.login {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(3.75deg, #EE4848 -19.99%, rgba(0, 26, 255, 0.67) 119.98%, rgba(0, 26, 255, 0) 119.99%);
+}
+
+.login > h1 {
+    position: absolute;
+    width: 787px;
+    height: 161px;
+    left: 33px;
+    top: 133px;
+    font-family: 'JetBrains Mono', monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 128px;
+    line-height: 169px;
+    color: #FFFFFF;
+}
+
+.login > p {
+    position: absolute;
+    width: 401px;
+    height: 34px;
+    left: 238px;
+    top: 327px;
+    font-family: 'JetBrains Mono', monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+
+.login-container {
+    position: absolute;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 50px;
+    width: 539px;
+    height: 698px;
+    left: 1000px;
+    top: 157px;
+    background: #FFFFFF;
+}
+
+.login-container > input {
+    height: 30px;
+    width: 80%;
+    border: 1px solid gray;
+    outline: none;
+    font-size: 25px;
+    padding: 5px;
+  }
+
+.login-container > button {
+    padding: 20px 50px;
+    border: none;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+  
+.signin-button {
+    background: linear-gradient(122.19deg, #da2079 1.89%, #2a00d5 113.56%);
+    font-size: 20px;
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: normal;
+    color: white;
+}
+
+.signin-button {
+    color: #FFF;
+    transition: all 0.5s;
+    position: relative;
+}
+.signin-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255,255,255,0.1);
+    transition: all 0.3s;
+}
+.signin-button:hover::before {
+    opacity: 0 ;
+    transform: scale(0.5,0.5);
+}
+.signin-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.5);
+    transform: scale(1.2,1.2);
+}
+.signin-button:hover::after {
+    opacity: 1;
+    transform: scale(1,1);
+    
+}
+  
+.create-button {
+    background: linear-gradient(122.19deg, #da2079 1.89%, #2a00d5 113.56%);
+    font-size: 20px;
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: normal;
+    color: white;
+  }
+ .create-button:hover{
+    transform: scale(1.1,1.1)
+ }
+
+ .notes-svg {
+    position: absolute;
+    width: 737.39px;
+    height: 544px;
+    left: 0px;
+    top: 480px; 
+  }

@@ -1,0 +1,71 @@
+.homepage {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(3.75deg, #EE4848 -19.99%, rgba(0, 26, 255, 0.67) 119.98%, rgba(0, 26, 255, 0) 119.99%);
+}
+
+.homepage > h1 {
+    position: absolute;
+
+    font-family: 'JetBrains Mono', monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 169px;
+    color: #FFFFFF;
+}
+
+button {
+    background: linear-gradient(122.19deg, #da2079 1.89%, #2a00d5 113.56%);
+    font-size: 20px;
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: normal;
+    color: white;
+}
+
+.inputnote {
+    margin: auto;
+    display: block;
+    top: 20px;
+    outline: none;
+    border: none;
+    width: 982px;
+    height: 124px;
+    font-size: 25px;
+    padding: 5px 20px;
+}
+
+.addNote{
+    margin: auto;
+    display: block;
+    top: 20px;
+    outline: none;
+    border: none;
+    width: 400px;
+    height: 50px;
+    font-size: 25px;
+    padding: 5px 20px;
+}
+
+.note{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+}
+
+.logout {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 20px;
+    background: red;
+    color: white;
+  }
