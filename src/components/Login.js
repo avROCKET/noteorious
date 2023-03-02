@@ -3,7 +3,6 @@ import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndP
 import { auth } from "../firebase.js";
 import { useNavigate } from "react-router-dom";
 import "./Login.css"
-import notes from '../assets/notes.svg'
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -58,29 +57,39 @@ export default function Login() {
     };
 
     return (
-        <div className="login">
-            <h1>NOTEorious</h1>
-            <p>online note taking. made simple.</p>
-            <img src={notes} className="notes-svg" />
+ 
+    <div className="login">
+    <div className="background">
+        <div className="shape"></div>
+        <div className="shape"></div>
+    </div>
+        <h1>NOTEorious</h1>
+        <p>online note taking. made simple.</p>
+        {isRegistering ? (
+        <>  
             <div className="login-container">
-                {isRegistering ? (
-                <>
-                    <input type = "email" placeholder="Enter Email Address" value={signupInfo.email} onChange={(e) => setSignupInfo({...signupInfo, email: e.target.value})}/>
-                    <input type = "email" placeholder="Confirm Email Address" value={signupInfo.confirmEmail} onChange={(e) => setSignupInfo({...signupInfo, confirmEmail: e.target.value})}/>
-                    <input type = "password" placeholder="Enter Password" value={signupInfo.password} onChange={(e) => setSignupInfo({...signupInfo, password: e.target.value})}/>
-                    <input type = "password" placeholder="Confirm Password" value={signupInfo.confirmPassword} onChange={(e) => setSignupInfo({...signupInfo, confirmPassword: e.target.value})}/>
-                    <button onClick={handleSignUp}>Sign Up</button>
-                    <button onClick={() => setIsRegistering(false)}>Return to Login</button>
-                </>
-                ) : ( 
-                <>
-                    <input type = "email" placeholder="Enter Email Address" onChange={handleEmailChange} value={email} />
-                    <input type = "password" placeholder="Enter Password" onChange={handlePasswordChange} value={password} />
-                    <button className="signin-button" onClick={handleSignIn}>Sign In</button>
-                    <button className="create-button" onClick={() => setIsRegistering(true)}>Create an Account</button>
-                </>
-                )}
+            <h3>Create An Account</h3>
+            <input type = "email" placeholder="Enter Email Address" value={signupInfo.email} onChange={(e) => setSignupInfo({...signupInfo, email: e.target.value})}/>
+            <input type = "email" placeholder="Confirm Email Address" value={signupInfo.confirmEmail} onChange={(e) => setSignupInfo({...signupInfo, confirmEmail: e.target.value})}/>
+            <input type = "password" placeholder="Enter Password" value={signupInfo.password} onChange={(e) => setSignupInfo({...signupInfo, password: e.target.value})}/>
+            <input type = "password" placeholder="Confirm Password" value={signupInfo.confirmPassword} onChange={(e) => setSignupInfo({...signupInfo, confirmPassword: e.target.value})}/>
+            <button onClick={handleSignUp}>Sign Up</button>
+            <button onClick={() => setIsRegistering(false)}>Return to Login</button>
             </div>
-        </div>
+        </>
+        ) : ( 
+        <>
+            <div className="login-container">
+            <h3>Login Here</h3>
+            <label>Email</label>
+            <input type = "email" placeholder="Enter Email Address" onChange={handleEmailChange} value={email}/>
+            <label>Password</label>
+            <input type = "password" placeholder="Enter Password" onChange={handlePasswordChange} value={password}/>
+            <button onClick={handleSignIn}>Log In</button>
+            <button onClick={() => setIsRegistering(true)}>Create an Account</button>
+            </div>
+        </>
+         )}
+    </div>
     )
 }

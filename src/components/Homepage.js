@@ -4,6 +4,8 @@ import { set, ref, onValue, remove, update } from "firebase/database";
 import { auth, db } from "../firebase.js";
 import { useNavigate } from "react-router-dom";
 import { uid } from "uid";
+import { useQuill } from 'react-quilljs';
+import 'quill/dist/quill.snow.css';
 import "./Homepage.css"
 
 
@@ -43,8 +45,9 @@ export default function Homepage() {
         });
     };
 
+    /* For now, this method saves notes in an online database for a single, 
+    for later sprints we will implement collaboration */
 
-    /* For now, this method saves notes in an online database for a single, for later sprints we will implement collaboration */
     // Read a Note
 
     // Add a Note
@@ -78,6 +81,20 @@ export default function Homepage() {
         remove(ref(db, `/${auth.currentUser.uid}/${uid}`))
     };
 
+    // Quill.js 
+    const { quill, quillRef } = useQuill();
+    React.useEffect(() => {
+        if (quill) {
+          quill.on('text-change', (delta, oldDelta, source) => {
+            console.log('Text change!');
+            console.log(quill.getText()); // Get text only
+            console.log(quill.getContents()); // Get delta contents
+            console.log(quill.root.innerHTML); // Get innerHTML using quill
+            console.log(quillRef.current.firstChild.innerHTML); // Get innerHTML using quillRef
+          });
+        }
+      }, [quill]);
+
     // Log
     console.log(auth.currentUser)
 
@@ -89,17 +106,25 @@ export default function Homepage() {
 
             {
                 notes.map(note => (
-                    <div className="note">
-                        <h2>{note.note}</h2>
+                    <div className="note" key={note}>
                         <button onClick={() => handleEdit(note.uidd)}>Edit</button>
                         <button onClick={() => handleDelete(note.uidd)}>Delete </button>
+                        <h2>{note.note}</h2>
                     </div>
                 ))
             
             }
             <br/><br/>
-            <input className= "inputnote" type="text" placeholder="Enter note..." value={note} onChange={(e) => setNote(e.target.value)}/>
             
+            <div className="textedit">
+                <div style={{ width: 500, height: 300 }}>
+                    <div ref={quillRef}/>
+                </div>
+            </div>
+
+            <input className= "inputnote" type="text" placeholder="Enter note..." value={note} onChange={(e) => setNote(e.target.value)}/>
+
+                
             {isEdit ? 
                 (<div>
                     <button onClick={handleUpdate}>Update</button>
@@ -114,4 +139,5 @@ export default function Homepage() {
             
         </div>
     )
+    
 }
