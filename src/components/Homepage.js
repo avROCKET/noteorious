@@ -5,6 +5,7 @@ import { auth, db } from "../firebase.js";
 import { useNavigate } from "react-router-dom";
 import { uid } from "uid";
 import { useQuill } from 'react-quilljs';
+import background from "../assets/background.mp4"
 import 'quill/dist/quill.snow.css';
 import "./Homepage.css"
 
@@ -16,6 +17,7 @@ export default function Homepage() {
     const [isEdit, setEdit] = useState(false);
     const [tempUIDD, setTempUIDD] = useState("");
     const navigate = useNavigate();
+    
     
     // NOTE: If user is not signed in, they will be routed to the Login page
     useEffect (() => {
@@ -53,9 +55,11 @@ export default function Homepage() {
     // Add a Note
     const writeData = () => {
         const uidd = uid(); // This creates an ID for each note
+        const content = quill.root.innerHTML; // Get the content of the editor
         set(ref(db, `/${auth.currentUser.uid}/${uidd}`), {
-            note: note,
-            uidd: uidd,
+          note: note,
+          uidd: uidd,
+          content: content, // Add the content to the note object
         });
         setNote("");
     };
@@ -100,42 +104,48 @@ export default function Homepage() {
 
     return (
         <div className="homepage">
+            <div className= "overlay"></div>
+            <video src={background} autoPlay loop muted />
+            <div className="content">
             <button className="logout" onClick={handleSignOut}>Sign Out</button>
             <h1>NOTEorious</h1>
             <br/><br/><br/><br/><br/><br/>
-
-            {
-                notes.map(note => (
-                    <div className="note" key={note}>
-                        <button onClick={() => handleEdit(note.uidd)}>Edit</button>
-                        <button onClick={() => handleDelete(note.uidd)}>Delete </button>
-                        <h2>{note.note}</h2>
-                    </div>
-                ))
             
-            }
-            <br/><br/>
-            
-            <div className="textedit">
-                <div style={{ width: 500, height: 300 }}>
-                    <div ref={quillRef}/>
-                </div>
-            </div>
-
-            <input className= "inputnote" type="text" placeholder="Enter note..." value={note} onChange={(e) => setNote(e.target.value)}/>
-
-                
             {isEdit ? 
-                (<div>
-                    <button onClick={handleUpdate}>Update</button>
-                    <button onClick={() => {setEdit(false); setNote(""); }}>Cancel</button>
+                (<div className="edit">
+                    <button  onClick={handleUpdate}>Update</button>
+                    <button  onClick={() => {setEdit(false); setNote(""); }}>Cancel</button>
                 </div>
                 ) : (
-                <div>
+                <div classname = "edit">
                     <button className="addNote" onClick={writeData}>Add Note</button>
                 </div>
                 )
             }
+            <div className="textedit">
+                <div style={{ width: 1100, height: 1000}}>
+                    <div ref={quillRef}/>
+                </div>
+            </div>
+            
+            
+            <div className="notesMap">
+            {
+                notes.map(note => (
+                <div className="note" key={note}>
+                <button onClick={() => handleEdit(note.uidd)}>Edit</button>
+                <button onClick={() => handleDelete(note.uidd)}>Delete </button>
+                <h2>{note.note}</h2>
+                <div dangerouslySetInnerHTML={{ __html: note.content }}></div> {/* Display the content */}
+                </div>
+                 ))
+            }
+            </div>
+            <br/><br/>
+            
+           
+                
+            </div>
             
         </div>
     )
