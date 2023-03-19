@@ -1,7 +1,7 @@
 # Getting Started with NOTEorious
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Using React Bootstrap Modal
+Using [React Modal](https://mdbootstrap.com/docs/react/components/modal/) with Bootstrap
 
 ## Main Features:
 - Login from any computer, access your notes from anywhere
