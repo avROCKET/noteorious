@@ -3,6 +3,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 Using React Bootstrap Modal
 
+## Main Features:
+- Login from any computer, access your notes from anywhere
+- [Google Firebase Authentication](https://firebase.google.com/docs/auth)
+- Notes stored in [Google Firebase Realtime Database](https://firebase.google.com/docs/database)
+- Add, View, Edit, and Delete Notes
+- Write notes in an easy-to-use RichText Editor ([Quill.js](https://quilljs.com/))
+- Simple and Clean UI
+- Embedded Spotify Web Player (To be Added)
+- Mood Tracker (To be Added)
+
+
 ## Available Scripts
 
 In the project directory (for NOTEorious), you can run:
