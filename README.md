@@ -10,6 +10,8 @@ Using [React Modal](https://mdbootstrap.com/docs/react/components/modal/) with B
 - Add, View, Edit, and Delete Notes
 - Write notes in an easy-to-use RichText Editor ([Quill.js](https://quilljs.com/))
 - Simple and Clean UI
+- Clock Widget
+- Weather Widget with Geolocation features
 - Embedded Spotify Web Player (To be Added)
 - Mood Tracker (To be Added)
 
