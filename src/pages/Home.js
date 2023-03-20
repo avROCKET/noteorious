@@ -127,7 +127,7 @@ export default function Home() {
       <video src={background} autoPlay loop muted />
       <div className="content container">
         <Row className="mt-5 mb-3">
-        
+        <WeatherB />
           <Col xs={12}>
             <div className="buttons">
               <button className="addNoteButton" onClick={openAddNoteModal}>
