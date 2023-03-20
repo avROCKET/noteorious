@@ -212,3 +212,7 @@ video {
    display: flex;
    flex-direction: column;
 }
+
+.clock>h1{
+   color: #FFFFFF;
+}
