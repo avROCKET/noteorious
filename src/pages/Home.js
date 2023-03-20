@@ -10,6 +10,7 @@ import { Col, Row } from "react-bootstrap";
 import TableNotes from "../components/table.js";
 import NoteModal from "../components/noteEditorModal.js";
 import NoteViewerModal from '../components/noteViewerModal';
+import WeatherB from "../components/WeatherB.js";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -126,6 +127,7 @@ export default function Home() {
       <video src={background} autoPlay loop muted />
       <div className="content container">
         <Row className="mt-5 mb-3">
+        
           <Col xs={12}>
             <div className="buttons">
               <button className="addNoteButton" onClick={openAddNoteModal}>
