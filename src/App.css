@@ -128,13 +128,13 @@ input {
 
 .login>h1 {
    position: absolute;
-   left: 41%;
+   left: 50%;
    top: 3%;
-   transform: translate(-13%, -3%);
+   transform: translate(-50%, -30%);
    font-family: 'JetBrains Mono', monospace;
    font-style: normal;
    font-weight: 400;
-   font-size: 70px;
+   font-size: 50px;
    line-height: 169px;
    color: #FFFFFF;
 }
@@ -143,8 +143,9 @@ input {
    position: absolute;
    width: 401px;
    height: 34px;
-   left: 46%;
-   top: 15%;
+   left: 51%;
+   top: 11%;
+   transform: translate(-50%, -10%);
    font-family: 'JetBrains Mono', monospace;
    font-style: normal;
    font-weight: 400;
@@ -152,8 +153,6 @@ input {
    line-height: 26px;
    color: #FFFFFF;
 }
-
-
 
 /*** Home */
 .homepage {
@@ -220,3 +219,4 @@ video {
 .weather{
    color: #FFFFFF;
 }
+   
