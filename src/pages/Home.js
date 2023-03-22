@@ -136,7 +136,7 @@ export default function Home() {
             </div>
           </Col>
         </Row>
-
+        <WeatherB/>
         <Row>
           <Col xs={12}>
             <TableNotes 
