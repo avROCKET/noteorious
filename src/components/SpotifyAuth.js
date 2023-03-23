@@ -4,7 +4,7 @@ import qs from 'querystring-es3';
 const AUTH_URL = 'https://accounts.spotify.com/authorize';
 
 const SpotifyAuthorizationComponent = () => {
-  const redirectUri = encodeURIComponent('https://noteorious.netlify.app/homepage');
+  const redirectUri = encodeURIComponent('https://noteorious.netlify.app');
 
   const scopes = ['user-read-private', 'user-read-email', 'streaming'];
 
