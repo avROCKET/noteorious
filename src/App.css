@@ -106,7 +106,7 @@ input {
    border-radius: 3px;
    padding: 0 10px;
    margin-top: 8px;
-   font-size: 14px;
+   font-size: 16px;
    font-weight: 300;
 }
 
@@ -191,6 +191,14 @@ video {
    height: 50px;
    font-size: 25px;
    padding: 5px 20px;
+   transition: all 0.2s ease-in-out;
+}
+.addNoteButton:hover{
+   transform: scale(0.9);
+}
+
+.addNoteButton:active{
+   transform: scale(50);
 }
 
 .note-table {
@@ -218,5 +226,75 @@ video {
 
 .weather{
    color: #FFFFFF;
+   font-family: 'JetBrains Mono', monospace;
 }
-   
+
+.entercity{
+   display: flex;
+   margin-top: 0;
+   font-size: 16px;
+   width: 300px;
+}
+
+.checkbox{
+   display: flex;
+   margin-top: 0;
+   margin-right: 5px;
+   height: 20px;
+   width: 20px;
+}
+
+.currentlocation{
+   display: flex;
+   margin-top: 0;
+   font-size: 16px;
+   width: 300px;
+}
+
+.searchbox{
+   display: flex;
+   height: 50px;
+   width: 25%;
+   background-color: rgba(255, 255, 255, 0.07);
+   border-radius: 3px;
+   padding: 0 10px;
+   margin-top: 8px;
+   font-size: 16px;
+   font-weight: 300;
+}
+  
+.weathersettings {
+  --b: 3px;   /* border thickness */
+  --s: .2em; /* size of the corner */
+  --color: white;
+  
+  padding: calc(.1em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-bottom: 10px;
+}
+
+.weathersettings:hover,
+.weathersettings:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.weathersettings:active {
+  background: var(--color);
+  color: #fff;
+}

@@ -6,6 +6,8 @@ function WeatherB() {
   const [error, setError] = useState(null);
   const [searchInput, setSearchInput] = useState("");
   const [useGeolocation, setUseGeolocation] = useState(false);
+  const [showSearchForm, setShowSearchForm] = useState(false);
+
 
   useEffect(() => {
     const apiKey = "871e89417ffc1e2f0cf2945384f5f161";
@@ -76,26 +78,36 @@ function WeatherB() {
     setUseGeolocation(event.target.checked);
   };
 
+  const handleToggleClick = () => {
+    setShowSearchForm(!showSearchForm);
+  };
+
   return (
     <div className="weather">
+      <button className="weathersettings" onClick={handleToggleClick}>
+        {showSearchForm ? "Hide Settings" : "Open Weather Settings"}
+      </button>
+      {showSearchForm && (
+      <div>
       <form onSubmit={handleFormSubmit}>
-        <label htmlFor="searchInput">Enter a city name:</label>
-        <input
+        <input 
           type="text"
+          className="searchbox"
+          placeholder="Enter City Name"
           id="searchInput"
           value={searchInput}
           onChange={handleInputChange}
         />
-        <button type="submit">Search</button>
       </form>
-      <label>
-        <input
-          type="checkbox"
-    checked={useGeolocation}
-      onChange={handleUseGeolocationChange}
-    />
-    Use my current location
-  </label>
+      <label className="currentlocation">
+        <input 
+          className="checkbox" 
+          type="checkbox" 
+          checked={useGeolocation} 
+            onChange={handleUseGeolocationChange}/>
+      Use my current location </label>
+      </div>
+      )}
   {error && <p>{error}</p>}
   {weather && (
     <div>
