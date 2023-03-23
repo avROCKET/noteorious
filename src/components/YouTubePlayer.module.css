@@ -19,6 +19,7 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
     margin-right: 0.5rem;
+    color: #fff;
   }
   
   .button {
@@ -31,6 +32,7 @@
     cursor: pointer;
   }
   
+
   .videoList {
     list-style: none;
     padding: 0;
@@ -103,4 +105,9 @@
     color: #fff;
     cursor: pointer;
     text-align: center;
+    transition: all 0.2s ease-in-out;
   }
+
+  .toggleButton:hover{
+    transform: scale(0.9);
+ }

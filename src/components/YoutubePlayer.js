@@ -34,7 +34,7 @@ const YouTubePlayer = () => {
   return (
     <div className={styles.container}>
       <button onClick={toggleInterfaceVisibility} className={styles.toggleButton}>
-        {isInterfaceVisible ? 'Hide Interface' : 'Show Interface'}
+        {isInterfaceVisible ? 'Hide YouTube' : 'Show YouTube'}
       </button>
       
       {isInterfaceVisible && (
@@ -43,7 +43,7 @@ const YouTubePlayer = () => {
             <input
               className={styles.input}
               type="text"
-              placeholder="Search YouTube videos"
+              placeholder="Search YouTube"
               value={searchTerm}
               onChange={handleChange}
             />
