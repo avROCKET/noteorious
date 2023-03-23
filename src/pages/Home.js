@@ -11,8 +11,9 @@ import TableNotes from "../components/table.js";
 import NoteModal from "../components/noteEditorModal.js";
 import NoteViewerModal from '../components/noteViewerModal';
 import WeatherB from "../components/WeatherB.js";
-import SpotifyPlayerComponent from "../components/Spotify.js";
-import SpotifyAuthorizationComponent from "../components/SpotifyAuth.js";
+import YouTubePlayer from "../components/YoutubePlayer.js";
+//import SpotifyPlayerComponent from "../components/Spotify.js";
+//import SpotifyAuthorizationComponent from "../components/SpotifyAuth.js";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -23,11 +24,11 @@ export default function Home() {
   const [isEdit, setIsEdit] = useState(false);
   const [openEditorModal, setOpenEditorModal] = useState(false);
   const [openViewerModal, setOpenViewerModal] = useState(false);
-  const [showSpotifyAuth, setShowSpotifyAuth] = useState(false);
+  //const [showSpotifyAuth, setShowSpotifyAuth] = useState(false);
 
-  const handleSpotifyAuthButtonClick = () => {
-    setShowSpotifyAuth(true);
-  };
+  //const handleSpotifyAuthButtonClick = () => {
+    //setShowSpotifyAuth(true);
+  //};
 
   // NOTE: If user is not signed in, they will be routed to the Login page
   useEffect(() => {
@@ -180,12 +181,7 @@ export default function Home() {
           }}
           note={note}
         />)}
-        <SpotifyPlayerComponent />
-        <div>
-          <h1>Spotify Auth Test</h1>
-          <button onClick={handleSpotifyAuthButtonClick}>Authorize Spotify</button>
-          {showSpotifyAuth && <SpotifyAuthorizationComponent />}
-          </div>
+        <YouTubePlayer/>
       </div>
     </div>
   );
