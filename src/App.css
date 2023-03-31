@@ -15,7 +15,7 @@
 }
 
 body {
-   background-color: #080710;
+   background-color: #000000;
 }
 
 button {
@@ -179,6 +179,17 @@ video {
    font-family: 'JetBrains Mono', monospace;
 }
 
+@media (max-width: 767px) {
+   .navbar a {
+       display: none;
+   }
+}
+
+.navbar-custom {
+
+   background-color: rgb(0, 0, 0);
+}
+
 .addNoteButton {
    margin-left: auto;
    margin-right: auto;
@@ -223,6 +234,14 @@ video {
 
 .clock>h1{
    color: #FFFFFF;
+   margin-left: -80px;
+   font-size: 40px;
+}
+
+@media (max-width: 767px) {
+   .clock>h1 {
+       margin-left: 0;
+   }
 }
 
 .weather{
