@@ -226,6 +226,29 @@ video {
    min-height: 500px;
 }
 
+.editor iframe {
+   position: relative;
+   display: inline-block;
+   margin: 0;
+   padding: 0;
+   border: none;
+   max-width: 100%;
+   width: 400px;
+   height: 200px;
+   vertical-align: top;
+ }
+
+ 
+ .note-content {
+   position: relative;
+   display: inline-block;
+   max-width: 100%;
+   width: 500px; /* change this to the desired width */
+   height: auto;
+   margin-right: 20px; /* adjust this to control the spacing between the text and the video */
+   vertical-align: top;
+ }
+ 
 .content {
    width: 100%;
    display: flex;
@@ -247,7 +270,9 @@ video {
 .weather{
    color: #FFFFFF;
    font-family: 'JetBrains Mono', monospace;
+   margin-top: 65px;
    margin-bottom: 20px;
+   width: fit-content;
 }
 
 .entercity{
@@ -319,4 +344,10 @@ video {
 .weathersettings:active {
   background: var(--color);
   color: #fff;
+}
+
+.widgets{
+   display: flex;
+   justify-content: space-around;
+   margin-bottom: 20px;
 }

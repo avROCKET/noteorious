@@ -12,6 +12,8 @@ import NoteModal from "../components/noteEditorModal.js";
 import NoteViewerModal from '../components/noteViewerModal';
 import WeatherB from "../components/WeatherB.js";
 import YouTubePlayer from "../components/YoutubePlayer.js";
+import CalendarWidget from "../components/CalendarWidget.js";
+
 //import SpotifyPlayerComponent from "../components/Spotify.js";
 //import SpotifyAuthorizationComponent from "../components/SpotifyAuth.js";
 
@@ -144,7 +146,7 @@ export default function Home() {
             </div>
           </Col>
         </Row>
-        <WeatherB/>
+        <div className="widgets"><WeatherB/> <CalendarWidget/></div>
         <Row>
           <Col xs={12}>
             <TableNotes 
