@@ -14,9 +14,6 @@ import WeatherB from "../components/WeatherB.js";
 import YouTubePlayer from "../components/YoutubePlayer.js";
 import CalendarWidget from "../components/CalendarWidget.js";
 
-//import SpotifyPlayerComponent from "../components/Spotify.js";
-//import SpotifyAuthorizationComponent from "../components/SpotifyAuth.js";
-
 export default function Home() {
   const navigate = useNavigate();
 
@@ -26,13 +23,7 @@ export default function Home() {
   const [isEdit, setIsEdit] = useState(false);
   const [openEditorModal, setOpenEditorModal] = useState(false);
   const [openViewerModal, setOpenViewerModal] = useState(false);
-  //const [showSpotifyAuth, setShowSpotifyAuth] = useState(false);
 
-  //const handleSpotifyAuthButtonClick = () => {
-    //setShowSpotifyAuth(true);
-  //};
-
-  // NOTE: If user is not signed in, they will be routed to the Login page
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
