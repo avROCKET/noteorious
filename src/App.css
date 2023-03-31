@@ -222,6 +222,10 @@ video {
    min-height: 500px;
 }
 
+.ql-editor {
+   font-size: 16px;
+ }
+
 .editor .ql-container {
    min-height: 500px;
 }
