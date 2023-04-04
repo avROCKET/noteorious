@@ -34,6 +34,7 @@ export default function Home() {
           if (data !== null) {
             Object.values(data).map((note) => {
               setNotes((oldNotes) => [...oldNotes, note]);
+              return null;
             });
           }
           setIsLoading(false);
@@ -42,7 +43,7 @@ export default function Home() {
         navigate("/");
       }
     });
-  }, []);
+  }, [navigate]);
 
   //Allows user to sign out.
   const handleSignOut = () => {
@@ -138,7 +139,10 @@ export default function Home() {
             </div>
           </Col>
         </Row>
-        <div className="widgets"><WeatherB/> <CalendarWidget/> <PhotoWidget/></div>
+        <div className="widgets">
+          <WeatherB/> 
+          <CalendarWidget/> 
+          <PhotoWidget/></div>
         <Row>
           <Col xs={12}>
             <TableNotes 

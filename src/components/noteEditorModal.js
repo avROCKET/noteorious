@@ -19,7 +19,7 @@ export default function NoteEditorModal(props) {
     } else if (quill) {
       quill.clipboard.dangerouslyPasteHTML("<p></p>");
     }
-   }, [isEdit, quill]);
+   }, [isEdit, quill, note.content, note.title]);
 
    const handleSave = () => {
       if (noteTitle === '') {
@@ -42,10 +42,10 @@ export default function NoteEditorModal(props) {
          </Modal.Header>
          <Modal.Body>
             <Form.Group className="mb-3">
-               <p className='p-0 m-0'>Note Title</p>
+               <p className='p-0 m-0'>Title</p>
                <Form.Control type="text" value={noteTitle} placeholder="Note Title" onChange={(e) => setNoteTitle(e.target.value)} />
             </Form.Group>
-            <p className='p-0 m-0'>Note Body</p>
+            <p className='p-0 m-0'>Note</p>
             <div className="editor">
                <div ref={quillRef} />
             </div>

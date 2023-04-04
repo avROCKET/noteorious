@@ -3,12 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 export default function NoteViewerModal(props) {
-   const { setShow, note, handleClose } = props;
+   const { setShow, note, handleClose} = props;
 
   return (
       <Modal show={true} fullscreen={true} onHide={() => setShow(false)}>
          <Modal.Header closeButton>
-            <Modal.Title>Note</Modal.Title>
+            <Modal.Title><b>{note.title}</b></Modal.Title>
          </Modal.Header>
          <Modal.Body>
             <div dangerouslySetInnerHTML={{ __html: note.content }}></div> 

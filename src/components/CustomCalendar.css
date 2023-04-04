@@ -116,6 +116,7 @@
   }
   .react-calendar__navigation button[disabled] {
     background-color: #f0f0f0;
+    color: #282c34;
   }
   .react-calendar__month-view__weekdays {
     text-align: center;
@@ -186,4 +187,5 @@
   }
   .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #e6e6e6;
+    color: #282c34;
   }

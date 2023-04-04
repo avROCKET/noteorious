@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { auth, db, storage } from "../firebase.js";
+import photologo from "../assets/photologo.jpg";
 
 const PhotoWidget = () => {
   const [file, setFile] = useState(null);
@@ -11,7 +12,13 @@ const PhotoWidget = () => {
     if (e.target.files[0]) {
       setFile(e.target.files[0]);
       const storageRef = ref(storage, `${Date.now()}_${e.target.files[0].name}`);
-      uploadBytes(storageRef, e.target.files[0]).then(() => {
+      const metadata = {
+        contentType: e.target.files[0].type,
+        customMetadata: {
+          "uid": auth.currentUser.uid
+        }
+      };
+      uploadBytes(storageRef, e.target.files[0], metadata).then(() => {
         getDownloadURL(storageRef).then((url) => {
           setUrl(url);
           saveImage(url);
@@ -25,12 +32,14 @@ const PhotoWidget = () => {
     db.ref(`/${auth.currentUser.uid}/photos`).push({ url });
   };
 
-  // Render the PhotoWidget component
   return (
     <div className="photo-widget">
-      <h3>Photo Widget</h3>
+      <h3><img style={{ height: 35, marginBottom: 2, marginRight: 10}} src={photologo} alt="photoriouslogo"/>PHOTOrious</h3>
       <input type="file" onChange={uploadImage} />
-      {url && <img src={url} alt="Uploaded" />}
+      {file && <p>{file.name} has been uploaded.</p>}
+      <div className="image-container">
+        <img src={url} alt="Save to your PHOTOrious Cloud." style={{ maxWidth: "100%", maxHeight: "100%" }}/>
+      </div>
     </div>
   );
 };
