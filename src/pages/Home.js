@@ -13,6 +13,7 @@ import NoteViewerModal from '../components/noteViewerModal';
 import WeatherB from "../components/WeatherB.js";
 import YouTubePlayer from "../components/YoutubePlayer.js";
 import CalendarWidget from "../components/CalendarWidget.js";
+import PhotoWidget from "../components/PhotoWidget.js";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -137,7 +138,7 @@ export default function Home() {
             </div>
           </Col>
         </Row>
-        <div className="widgets"><WeatherB/> <CalendarWidget/></div>
+        <div className="widgets"><WeatherB/> <CalendarWidget/> <PhotoWidget/></div>
         <Row>
           <Col xs={12}>
             <TableNotes 
