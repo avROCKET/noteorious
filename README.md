@@ -17,7 +17,7 @@ Using [React Modal (Bootstrap)](https://mdbootstrap.com/docs/react/components/mo
 - Embedded Youtube Music Player
 - Mood Tracker (To be Added)
 
-Website Deployed on Netlify, follow this link: https://noteorious.netlify.app/homepage
+Website Deployed on Netlify, follow this link: https://noteorious.netlify.app
 
 ## Available Scripts
 
@@ -34,5 +34,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-------------------------------------------------------------
