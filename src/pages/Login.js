@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   signInWithEmailAndPassword,
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../firebase.js";
@@ -27,7 +26,7 @@ export default function Login() {
         navigate("/homepage");
       }
     });
-  }, []);
+  }, [navigate]);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);

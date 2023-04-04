@@ -22,7 +22,9 @@
     color: #fff;
   }
   
-  .button {
+  .searchButton {
+    display: block;
+    margin: 12px auto;
     padding: 0.5rem 1rem;
     font-size: 1rem;
     border-radius: 4px;
@@ -30,6 +32,8 @@
     background-color: #007bff;
     color: #fff;
     cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
   }
   
 
@@ -111,3 +115,7 @@
   .toggleButton:hover{
     transform: scale(0.9);
  }
+
+ .searchButton:hover{
+  transform: scale(0.9);
+}

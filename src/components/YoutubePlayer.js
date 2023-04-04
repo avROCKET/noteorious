@@ -47,7 +47,7 @@ const YouTubePlayer = () => {
               value={searchTerm}
               onChange={handleChange}
             />
-            <button className={styles.button} type="submit">Search</button>
+            <button className={styles.searchButton} type="submit">Search</button>
           </form>
           {videoList.length > 0 && (
             <ul className={styles.videoList}>
