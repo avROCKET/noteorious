@@ -73,6 +73,7 @@ const YouTubePlayer = () => {
       {selectedVideoId && (
         <div className={styles.player}>
           <iframe
+            className='youtubeiframe'
             title="YouTube Video Player"
             width="560"
             height="315"
