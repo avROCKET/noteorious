@@ -28,7 +28,7 @@ export default function Home() {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        onValue(ref(db, `/${auth.currentUser.uid}`), (snapshot) => {
+        onValue(ref(db, `/${auth.currentUser.uid}/notes`), (snapshot) => {
           setNotes([]);
           const data = snapshot.val();
           if (data !== null) {
@@ -66,7 +66,7 @@ export default function Home() {
       title,
       content, 
     };
-    set(ref(db, `/${auth.currentUser.uid}/${uidd}`), {...newNote});
+    set(ref(db, `/${auth.currentUser.uid}/notes/${uidd}`), {...newNote});
     setOpenEditorModal(false);
   };
 
@@ -84,8 +84,8 @@ export default function Home() {
       title,
       content, 
     };
-
-    update(ref(db, `/${auth.currentUser.uid}/${updatedNote.uidd}`), {
+  
+    update(ref(db, `/${auth.currentUser.uid}/notes/${updatedNote.uidd}`), {
       ...updatedNote,
     });
     setNotes((oldNotes) => {
@@ -103,7 +103,7 @@ export default function Home() {
 
   // Delete a Note
   const deleteNote = (note) => {
-    remove(ref(db, `/${auth.currentUser.uid}/${note.uidd}`));
+    remove(ref(db, `/${auth.currentUser.uid}/notes/${note.uidd}`));
   };
 
   const handleCloseEditorModal = () => {
