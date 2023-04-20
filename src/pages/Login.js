@@ -44,7 +44,7 @@ export default function Login() {
       .then(() => {
         navigate("/homepage");
       })
-      .catch((err) => showAlert(err.message));
+      .catch((err) => showAlert("Invalid Email/Password. Please try again."));
   };
 
   const handleSignInWithGoogle = () => {
@@ -53,7 +53,7 @@ export default function Login() {
       .then(() => {
         navigate("/homepage");
       })
-      .catch((err) => showAlert(err.message));
+      .catch((err) => showAlert("Google Authentication Failed. Please try again."));
   };
 
   const handleSignUp = () => {
@@ -80,7 +80,7 @@ export default function Login() {
           showAlert("Password reset email sent! Check your inbox.");
         })
         .catch((err) => {
-          showAlert(err.message);
+          showAlert(getErrorMessage('This user does not exist. Please try again.'));
         });
     }
   };
@@ -110,6 +110,15 @@ export default function Login() {
     }
   };
   
+  const customErrorMessages = {
+    'auth/user-not-found': 'This user does not exist. Please try again.',
+    'auth/wrong-password': 'The password you entered is incorrect. Please try again.',
+    'auth/email-already-in-use': 'This email address is already in use. Please choose another email address.',
+  };
+
+  function getErrorMessage(errorCode) {
+    return customErrorMessages[errorCode] || 'An error occurred. Please try again.';
+  }  
 
   return (
     <div className="login" onKeyDown={handleKeyDown}>
