@@ -89,7 +89,7 @@ const PhotoWidget = () => {
           Upload Photo
         </label>
       </div>
-      {file && <p>{file.name} has been uploaded.</p>}
+      {file && <p>Photo has been uploaded.</p>}
       <div className={styles["image-container"]}>
         {photos.map((photo, index) => (
           <div key={index} className={styles["photo-grid-item"]}>
