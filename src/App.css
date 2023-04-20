@@ -62,7 +62,7 @@ button {
 }
 
 .login-container {
-   height: 520px;
+   height: 525px;
    width: 400px;
    background-color: rgba(255, 255, 255, 0.13);
    position: absolute;
@@ -73,7 +73,7 @@ button {
    backdrop-filter: blur(10px);
    border: 2px solid rgba(255, 255, 255, 0.1);
    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-   padding: 50px 35px;
+   padding: 10px 35px;
 }
 
 .login-container * {
@@ -115,11 +115,11 @@ input {
 }
 
 .login-container>button {
-   margin-top: 25px;
+   margin-top: 20px;
    width: 100%;
    background-color: #ffffff;
    color: #fff;
-   padding: 15px 0;
+   padding: 5px 0;
    font-size: 18px;
    font-weight: 600;
    border-radius: 5px;
@@ -153,6 +153,13 @@ input {
    line-height: 26px;
    color: #FFFFFF;
 }
+
+.empty-space:after {
+   content: "";
+   display: inline-block;
+   width: 25px; 
+   height: 1em;
+ }
 
 /*** Home */
 .homepage {
@@ -209,13 +216,9 @@ video {
    transform: scale(0.9);
 }
 
+
 .note-table {
    background-color: #fff;
-}
-
-.editor {
-   background-color: rgb(255, 255, 255);
-   min-height: 500px;
 }
 
 .ql-editor {
@@ -267,85 +270,107 @@ video {
    }
 }
 
+
+/* Weather Widget*/
+
 .weather{
    color: #FFFFFF;
    font-family: 'JetBrains Mono', monospace;
-   margin-top: 7%;
-   margin-bottom: 7%;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   margin-left: 5px;
    width: 350px;
-   max-width: 400px;
-}
-
-.entercity{
+   height: 350px;
    display: flex;
-   margin-top: 0;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   background-color: rgba(0, 0, 0, 0.5);
+   border-radius: 8px;
+   padding: 20px;
+   box-sizing: border-box;
+ }
+ 
+ .entercity{
+   display: flex;
    font-size: 16px;
-   width: 300px;
-}
-
-.checkbox{
+   width: 100%;
+ }
+ 
+ .checkbox{
    display: flex;
    margin-top: 0;
    margin-right: 5px;
-   height: 20px;
-   width: 20px;
-}
-
-.currentlocation{
+   height: 16px;
+   width: 16px;
+ }
+ 
+ .currentlocation{
    display: flex;
-   margin-top: 0;
-   font-size: 16px;
-   width: 300px;
-}
-
-.searchbox{
+   font-size: 12px;
+   width: 100%;
+ }
+ 
+ .searchbox{
    display: flex;
-   height: 50px;
-   width: 250px;
+   height: 25px;
+   width: 100%;
    background-color: rgba(255, 255, 255, 0.07);
    border-radius: 3px;
-   padding: 0 10px;
-   margin-top: 8px;
    font-size: 16px;
    font-weight: 300;
    color: #fff;
-}
-  
-.weathersettings {
-  --b: 3px;   /* border thickness */
-  --s: .2em; /* size of the corner */
-  --color: white;
-  
-  padding: calc(.1em + var(--s)) calc(.9em + var(--s));
-  color: var(--color);
-  --_p: var(--s);
-  background:
-    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
-    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
-  transition: .3s linear, color 0s, background-color 0s;
-  outline: var(--b) solid #0000;
-  outline-offset: .6em;
-  font-size: 16px;
+   margin-top: 0px;
+   margin-bottom: -25px;
+ }
+   
+ .weathersettings {
+   --b: 1px;   /* border thickness */
+   --s: .15em; /* size of the corner */
+   --color: white;
+   
+   padding: calc(.1em + var(--s)) calc(.9em + var(--s));
+   color: var(--color);
+   --_p: var(--s);
+   background:
+     conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+     var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+   transition: .3s linear, color 0s, background-color 0s;
+   outline: var(--b) solid #0000;
+   outline-offset: .6em;
+   font-size: 16px;
+   margin-bottom: 10px;
+ 
+   border: 0;
+ 
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+ }
+ 
+ .weathersettings:hover,
+ .weathersettings:focus-visible{
+   --_p: 0px;
+   outline-color: var(--color);
+   outline-offset: .05em;
+ }
+ 
+ .weathersettings:active {
+   background: var(--color);
+   color: #fff;
+ }
+ 
+ .temperature {
+   font-size: 48px;
+   font-weight: bold;
+ }
+ 
+ .description {
+   margin-top: -30px;
+   font-size: 20px;
+ }
+ 
 
-  border: 0;
-
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin-bottom: 10px;
-}
-
-.weathersettings:hover,
-.weathersettings:focus-visible{
-  --_p: 0px;
-  outline-color: var(--color);
-  outline-offset: .05em;
-}
-
-.weathersettings:active {
-  background: var(--color);
-  color: #fff;
-}
 
 .widgets{
    display: flex;
@@ -356,3 +381,98 @@ video {
    margin-bottom: 50px;
 }
 
+/* table.css */
+
+.glossy-table {
+   background: rgba(255, 255, 255, 0.1);
+   border-radius: 10px;
+   overflow: hidden;
+   backdrop-filter: blur(10px);
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .glossy-table thead th {
+   background-color: rgba(255, 255, 255, 0.2);
+   padding: 12px 20px;
+ }
+ 
+ .glossy-table tbody td {
+   padding: 8px 20px;
+ }
+ 
+ .glossy-table tbody tr:nth-child(even) {
+   background-color: rgba(255, 255, 255, 0.05);
+ }
+ 
+ .glossy-table tbody tr:hover {
+   background-color: rgba(255, 255, 255, 0.1);
+ }
+ 
+/* Alerts */
+@keyframes fadeIn {
+   from {
+     opacity: 0;
+   }
+   to {
+     opacity: 1;
+   }
+ }
+ 
+ @keyframes fadeOut {
+   from {
+     opacity: 1;
+   }
+   to {
+     opacity: 0;
+   }
+ }
+ 
+ .overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   backdrop-filter: blur(5px);
+   z-index: 999;
+ }
+ 
+ .custom-alert {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: white;
+   border-radius: 5px;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+   padding: 20px;
+   text-align: center;
+   z-index: 1000;
+   opacity: 0;
+   transition: opacity 0.3s ease-in-out;
+ }
+ 
+ .custom-alert.visible {
+   opacity: 1;
+ }
+ 
+ 
+ .custom-alert.fade-out {
+   animation: fadeOut 0.3s ease-in-out forwards;
+ }
+ 
+ 
+ .custom-alert p {
+   margin-bottom: 20px;
+ }
+ 
+ .custom-alert button {
+   background-color: #007bff;
+   border: none;
+   border-radius: 5px;
+   color: white;
+   cursor: pointer;
+   padding: 10px 20px;
+ }
+ 

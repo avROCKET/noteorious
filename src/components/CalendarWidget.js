@@ -11,7 +11,7 @@ const CalendarWidget = () => {
   };
 
   const handleResize = () => {
-    if (window.innerWidth <= 767) {
+    if (window.innerWidth <= 995) {
       setDisplayCalendar(false);
     } else {
       setDisplayCalendar(true);

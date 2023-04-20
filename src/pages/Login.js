@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../firebase.js";
 import { useNavigate } from "react-router-dom";
+import googlelogo from "../assets/google.png";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -16,10 +20,10 @@ export default function Login() {
     password: "",
     confirmPassword: "",
   });
+  const [alert, setAlert] = useState({ visible: false, message: "" });
 
   const navigate = useNavigate();
 
-  //Allows user to stay logged in once authorized.
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -35,33 +39,89 @@ export default function Login() {
     setPassword(e.target.value);
   };
 
-  //Routes user to Homepage once authonization is successful, otherwise, user receives error message.
   const handleSignIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         navigate("/homepage");
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => showAlert(err.message));
   };
 
-  //Routes user to Homepage once registration is successful, otherwise, user receives error message.
+  const handleSignInWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then(() => {
+        navigate("/homepage");
+      })
+      .catch((err) => showAlert(err.message));
+  };
+
   const handleSignUp = () => {
     if (signupInfo.email !== signupInfo.confirmEmail) {
-      alert("Email does not match.");
+      showAlert("Email does not match.");
       return;
     } else if (signupInfo.password !== signupInfo.confirmPassword) {
-      alert("Passwords do not match.");
+      showAlert("Passwords do not match.");
       return;
     }
     createUserWithEmailAndPassword(auth, signupInfo.email, signupInfo.password)
       .then(() => {
         navigate("/homepage");
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => showAlert(err.message));
   };
 
+  const handlePasswordReset = () => {
+    if (email === "") {
+      showAlert("Please enter your email address.");
+    } else {
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+          showAlert("Password reset email sent! Check your inbox.");
+        })
+        .catch((err) => {
+          showAlert(err.message);
+        });
+    }
+  };
+
+  const showAlert = (message) => {
+    setAlert({ visible: true, message });
+  };
+
+  const hideAlert = () => {
+    const alertElement = document.querySelector(".custom-alert");
+    if (alertElement) {
+      alertElement.classList.add("fade-out");
+      setTimeout(() => {
+        setAlert({ visible: false, message: "" });
+        alertElement.classList.remove("fade-out");
+      }, 300); // The duration of the fade-out animation
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      if (isRegistering) {
+        handleSignUp();
+      } else {
+        handleSignIn();
+      }
+    }
+  };
+  
+
   return (
-    <div className="login">
+    <div className="login" onKeyDown={handleKeyDown}>
+      {alert.visible && (
+        <>
+          <div className="overlay"></div>
+          <div className={`custom-alert ${alert.visible ? "visible" : ""}`}>
+            <p>{alert.message}</p>
+            <button onClick={hideAlert}>OK</button>
+          </div>
+        </>
+      )}
       <div className="background">
         <div className="shape"></div>
         <div className="shape"></div>
@@ -72,6 +132,7 @@ export default function Login() {
         <>
           <div className="login-container">
             <h3>Create An Account</h3>
+            <label className="empty-space"></label>
             <input
               type="email"
               placeholder="Enter Email Address"
@@ -88,6 +149,7 @@ export default function Login() {
                 setSignupInfo({ ...signupInfo, confirmEmail: e.target.value })
               }
             />
+            <h1 className="empty-space"></h1>
             <input
               type="password"
               placeholder="Enter Password"
@@ -132,9 +194,15 @@ export default function Login() {
               value={password}
             />
             <button onClick={handleSignIn}>Log In</button>
-            <button onClick={() => setIsRegistering(true)}>
-              Create an Account
+            <button onClick={() => setIsRegistering(true)}>Create an Account</button>
+            <button onClick={handleSignInWithGoogle}>Log In with 
+            <img
+            style={{ height: 25, marginBottom: 0, marginLeft: 12 }}
+            src={googlelogo}
+            alt="googlelogo"
+            />
             </button>
+            <button onClick={handlePasswordReset}>Forgot Password?</button>
           </div>
         </>
       )}

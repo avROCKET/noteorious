@@ -149,7 +149,6 @@ export default function Home() {
               notes={notes} 
               deleteNote={deleteNote} 
               handleEdit={handleEdit} 
-              handleView={handleView} 
               isLoading={isLoading}
             />
           </Col>
@@ -165,7 +164,7 @@ export default function Home() {
         )}
 
         {openEditorModal && (<NoteModal 
-          title={isEdit ? 'Edit Note' : 'Create Note'} 
+          title={isEdit ? ['Edit Note'] : 'Create Note'} 
           isEdit={isEdit}
           show={openEditorModal} 
           setShow={setOpenEditorModal}

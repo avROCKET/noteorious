@@ -56,6 +56,16 @@ const PhotoWidget = () => {
     remove(dbRef(db, `/${auth.currentUser.uid}/photos/${photo.key}`));
   };
 
+  const downloadImage = (url, filename) => {
+    const element = document.createElement("a");
+    element.href = url;
+    element.download = filename;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  };
+
+
 
   return (
     <div className={styles["photo-widget"]}>

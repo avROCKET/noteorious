@@ -6,7 +6,7 @@ const YouTubePlayer = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [videoList, setVideoList] = useState([]);
   const [selectedVideoId, setSelectedVideoId] = useState('');
-  const [isInterfaceVisible, setIsInterfaceVisible] = useState(true);
+  const [isInterfaceVisible, setIsInterfaceVisible] = useState(false);
 
   const API_KEY = 'AIzaSyBAkrVmn0qxOdVYWqC94R3qq9EnH4fLV3Y';
 
@@ -34,7 +34,7 @@ const YouTubePlayer = () => {
   return (
     <div className={styles.container}>
       <button onClick={toggleInterfaceVisibility} className={styles.toggleButton}>
-        {isInterfaceVisible ? 'Hide YouTube' : 'Show YouTube'}
+        {isInterfaceVisible ? 'Hide YouTube' : 'Open YouTube'}
       </button>
       
       {isInterfaceVisible && (

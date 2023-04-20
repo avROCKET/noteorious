@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
 import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css";
 import { Form } from 'react-bootstrap';
 import { useState } from 'react';
+import './noteEditorModal.css'
 
 export default function NoteEditorModal(props) {
    const { quill, quillRef } = useQuill();
@@ -35,29 +35,27 @@ export default function NoteEditorModal(props) {
       okAction.action(noteTitle, quill.root.innerHTML)
    }
 
-  return (
+   return (
       <Modal show={true} fullscreen={true} onHide={() => setShow(false)}>
-         <Modal.Header closeButton>
-            <Modal.Title>{title}</Modal.Title>
-         </Modal.Header>
-         <Modal.Body>
-            <Form.Group className="mb-3">
-               <p className='p-0 m-0'>Title</p>
-               <Form.Control type="text" value={noteTitle} placeholder="Note Title" onChange={(e) => setNoteTitle(e.target.value)} />
-            </Form.Group>
-            <p className='p-0 m-0'>Note</p>
-            <div className="editor">
-               <div ref={quillRef} />
-            </div>
-         </Modal.Body>
-         <Modal.Footer>
-            <Button onClick={cancelAction.action}>
-               {cancelAction.text}
-            </Button>
-            <Button onClick={handleSave}>
-               {okAction.text}
-            </Button>
-         </Modal.Footer>
+        <Modal.Header closeButton>
+          <Modal.Title>{title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form.Group className="mb-3">
+            <Form.Control type="text" value={noteTitle} placeholder="Note Title" onChange={(e) => setNoteTitle(e.target.value)} />
+          </Form.Group>
+          <div className="editor">
+            <div ref={quillRef} />
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={cancelAction.action}>
+            {cancelAction.text}
+          </Button>
+          <Button onClick={handleSave}>
+            {okAction.text}
+          </Button>
+        </Modal.Footer>
       </Modal>
-  );
-}
+   );
+}   

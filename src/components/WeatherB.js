@@ -88,36 +88,38 @@ function WeatherB() {
         {showSearchForm ? "Hide Settings" : "Open Weather Settings"}
       </button>
       {showSearchForm && (
-      <div>
-      <form onSubmit={handleFormSubmit}>
-        <input 
-          type="text"
-          className="searchbox"
-          placeholder="Enter City Name"
-          id="searchInput"
-          value={searchInput}
-          onChange={handleInputChange}
-        />
-      </form>
-      <label className="currentlocation">
-        <input 
-          className="checkbox" 
-          type="checkbox" 
-          checked={useGeolocation} 
-            onChange={handleUseGeolocationChange}/>
-      Use my current location </label>
+        <div>
+          <form onSubmit={handleFormSubmit}>
+            <input 
+              type="text"
+              className="searchbox"
+              placeholder="Enter City Name"
+              id="searchInput"
+              value={searchInput}
+              onChange={handleInputChange}
+              />
+            </form>
+            <label className="currentlocation">
+              <input 
+                className="checkbox" 
+                type="checkbox" 
+                checked={useGeolocation} 
+                onChange={handleUseGeolocationChange}/>
+              Use my current location
+            </label>
+          </div>
+        )}
+        {error && <p>{error}</p>}
+        {weather && (
+          <div>
+            <h2>{location}</h2>
+            <p className="temperature">{weather.main.temp}°F</p>
+            <p className="description">{weather.weather[0].description}</p>
+          </div>
+        )}
       </div>
-      )}
-  {error && <p>{error}</p>}
-  {weather && (
-    <div>
-      <h2>{location}</h2>
-      <p>{weather.main.temp}°F, {weather.weather[0].description}</p>
-    </div>
-  )}
-</div>
-
-);
+    );
+      
 }
 
 export default WeatherB;

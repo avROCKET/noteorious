@@ -1,0 +1,52 @@
+/* NoteEditorModal.css */
+.modal-header {
+    background-color: #000000;
+    color: white;
+    border-bottom: none;
+  }
+  
+  .modal-title {
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    background-color: #f5f5f5;
+    padding: 30px;
+  }
+  
+  .modal-footer{
+    background-color: #000000 !important;
+    border-top: none;
+    padding: 20px;
+  }
+  
+  .form-group p {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .editor {
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    min-height: 500px;
+    max-width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn {
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn:hover {
+    color: white;
+    transform: scale(0.9);
+  }
+  
